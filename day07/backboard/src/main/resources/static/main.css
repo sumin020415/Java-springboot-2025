@@ -1,0 +1,13 @@
+h1 {
+    color: blue;
+}
+
+textarea {
+    width: 98%;
+    background-color: gainsboro;
+}
+
+input[type=submit] {
+    background-color: limegreen;
+}
+

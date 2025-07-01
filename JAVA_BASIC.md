@@ -1,29 +1,30 @@
-### Java 기초문법
+## Java 기초문법
 
 ### 기본
-- Java 소스코드 구조
+- 자바 소스코드 구조
 
     ```java
-    // 한줄 주석
-    /* 여러줄 주석 */
-    package com.sm02.spring01; // 본인 프로젝트의 패키지명 (폴더)
+    // 한줄 주석.
+    /* 여러줄 
+       주석. */
+    package com.hugo83.spring01; // 자신 프로젝트의 패키지명(폴더)
 
     import org.springframework.boot.SpringApplication;  // 라이브러리, 클래스 가져오기
     import org.springframework.boot.autoconfigure.SpringBootApplication;
 
     @SpringBootApplication  // 자바프로젝트 실행을 도와주는 어노테이션
-    public class Spring01Application {  // 자신 클래스명
+    public class Spring01Application { // 자신 클래스명
 
-        // 엔트리포인트 (프로젝트당 하나만 존재)
-        public static void main(String[] args) {  // 함수, 클래스, 조건문, 반복문 시작이 중괄호 {}
-            SpringApplication.run(Spring01Application.class, args);  // 한줄이 끝나면 반드시 ;
+        // 엔트리포인트(프로젝트당 하나만 존재)
+        public static void main(String[] args) { // 함수, 클래스, 조건문, 반복문시작이 중괄호({)
+            SpringApplication.run(Spring01Application.class, args); // 한줄이 끝나면 반드시 ;
 
-            System.out.println("Hello, Spring Boot!");  // 콘솔출력, 문자열을 항상 ""
+            System.out.println("Hello, Spring Boot!"); // 콘솔출력, 문자열을 항상 "
         }
     }
     ```
 
-- 자바특강
+- 자바특징
     - `간결`하면서 강력한 객체지향 언어
     - `플랫폼 독립적`, OS에 영향을 거의 받지 않음
     - 라이브러리가 아주 다양, `생산성` 향상
@@ -35,8 +36,8 @@
     - sourcecode.java -> javac(java compiler) -> bytecode.class -> java로 실행
 
 - 활용분야
-    - 웹에 특화. 인터넷포털, 인터넷뱅킹, 쇼핑몰, 기업시스템
-    - 초기 안드로이드 개발 언어였음. 현재는 Kotlin으로 변경
+    - 웹에 특화. 인터넷 포털, 인터넷 뱅킹, 쇼핑몰, 기업시스템
+    - 초기 안드로이드 개발 대표 언어였음. 현재는 Kotlin으로 변경
 
 ### 기초문법
 
@@ -46,14 +47,14 @@
     ```java
     [접근제어자] 타입 변수명;
     ```
-    - 접근제어자 - 번수의 접근범위를 지정하는 키워드(public, default, protected, private)
+    - 접근제어자 - 변수의 접근범위를 지정하는 키워드(public, default, protected, private)
     - 타입 - 자료형. 자바는 명시적으로 타입 지정해야 함
-    - 변수명 - 일반적인 번수명 지정법과 동일
+    - 변수명 - 일반적인 변수명 지정법과 동일
 
     ```java
-    int account = 10000000;  // 정수형(Primitive type)
-    Private String sayhi = "Hello";  // 문자열형(Class type) = String sayhi = 'Hello";
-    MyClass inst = new MyClass();  // 사용자정의 클래스형
+    int account = 10000000;     // 정수형(Primitive type)
+    private String sayhi = "Hello!";    /// 문자열형(Class type)
+    MyClass inst = new MyClass();     // 사용자정의 클래스형
     ```
 
 - 변수종류
@@ -64,113 +65,122 @@
 
     |구분|자료형|크기|설명|
     |:---:|:---:|:---|:---|
-    |정수형|byte|byte, -128~127|가장 작은단위, 8bit|
-    |      |char|2bytes, 0~65535|unsigned자료형, 문자표현용|
-    |      |short|2bytes, -32768~32767|signed자료형, 작은데이터처리용|
-    |      |int|4bytes, -2147백만~2147백만|기본자료형|
-    |      |long|8bytes, -922경~922경|큰정수자료형, 숫자뒤에 L표시|
-    |실수형|float|4bytes, 1.4E-45~3.40E38|실수형, 숫자뒤에 F표시|
-    |      |double|8bytes, 4.9E-324~1.79E308|실수형 기본자료형|
-    |논리형|boolean|1byte, true 또는 false|논리형, 참/거짓표현용|
+    |정수형|byte|1byte, -128~127|가장 작은단위, 8bit |
+    |      |char|2bytes, 0~65535|unsigned자료형, 문자표현용 |
+    |      |short|2bytes, -32768~32767|signed자료형, 작은데이터처리용 |
+    |      |int|4bytes, -2147백만~2147백만|기본자료형  |
+    |      |long|8bytes, -922경~922경|큰정수자료형, 숫자뒤에 L표시 |
+    |실수형|float|4bytes, 1.4E-45~3.40E38|실수형, 숫자뒤에 F표시 |
+    |      |double|8bytes, 4.9E-324~1.79E308|실수형기본자료형 |
+    |논리형|boolean|1byte, true또는false |논리형, 참/거짓표현용 |
 
     ```java
-    int number;
-    char ch_first = 'a'; 
-    long lingnum = 2345678L;
+    int number; 
+    char ch_first = 'a';  
+    long longnum = 2345678L;
     float fnum = 3.141592F;
     boolean isTrue = false;
     ```
+
 #### 연산자
 - 연산자는 거의 대부분의 언어에서 동일하게 사용
-- 사칙연산 : +, -, * , 1,%
-- 대입연산 : =, +=, -= , *= , /=, %=, ++(a++, a = a + 1 동일), --
-- 비트연산 : &, |, ^, ~, >>, <<
-- 논리연산 : &&, H, !
-- 관계연산 : == , >, >=, <, <= , !=
+    - 사칙연산 : +, -, * , /, %
+    - 대입연산 : =, +=, -=, *=, /=, %=, ++(a++, a = a + 1 동일), -- 
+    - 비트연산 : &, |, ^, ~, >>, <<
+    - 논리연산 : &&, ||, !
+    - 관계연산 : ==, >, >=, <, <=, !=
 
     - [Java문법실습](./day01/spring01/src/main/java/com/hugo83/spring01/Spring01Application.java)
 
 #### 흐름제어
 - 조건(분기)문 : if문, switch문
-- if문
-
-```java
-if (조건식) {
-    // if문 안으로 들어와서
-    실행코드 블럭;
-} else if (조건식) {
-실행코드 블럭;
-} else {
-    // 어디에도 참이 되지 않으면 ...
-    실행코드 블럭;
-}
-```
-
-- switch문 : 조건값에 따라 여러 분기로 나눌때 좋음. if문으로 대체 가능
-
-```java
-switch (입력변수) {
-    case 조건값1:
+    - if문
+    
+    ```java
+    if (조건식) {
+        // if문 안으로 들어와서
         실행코드 블럭;
-        break;
-    case 죠건값2:
-        실행코드 븥럭;
-    case 조건값3:
+    } else if (조건식) {
         실행코드 블럭;
-        break; // 조건값2에서 시작하면 조건값3까지 수행
-    default:
-        기본실행코드 블럭
-        break;  // case나 default에 되도록이면 뺴지말것
-}
-```
+    } else {
+        // 어디에도 참이 되지 않으면...
+        실행코드 블럭;
+    }
+    ```
 
-- 3항연산 : 간단하게 구현할 조건문 if-else 대신 사용. 실행코드 블럭이 한줄일 때
+    - switch(-case)문 - 조건값에 따라 여러 분기로 나눌때 좋음. if문으로 대체 가능
 
-```java
-String result = (isLogin) ? "로그인성공!" : "로그인실패";
+    ```java
+    switch (입력변수) {
+        case 조건값1:
+            실행코드 블럭;
+            break;
+        case 조건값2:
+            실행코드 블럭;
+        case 조건값3:
+            실행코드 블럭;
+            break;  // 조건값2에서 시작하면 조건값3까지 모두 수행
+        default:
+            기본실행코드 블럭;
+            break; // case나 default에 되도록이면 빼지말것
+    }
+    ```
 
-if (isLogin) {
-    result = "로그인성공";
-} else {
-    result = "로그인실패";
-}
-```
+    - 3항 연산 - 간단하게 구현할 조건문 if-else 대신 사용. 실행코드 블럭이 한줄일때
+
+    ```java
+    String result = (isLogin) ? "로그인성공!" : "로그인실패";
+
+    String result;
+    if (isLogin) {
+        result = "로그인성공!";    
+    } else {
+        result = "로그인실패";
+    }
+    ``` 
     - [Java문법실습](./day01/spring02/src/main/java/com/hugo83/spring02/Spring02Application.java)
 
 - 반복문 : for문, while문, do-while문
-    - for문 : 대표적인 반복문
+
+    - for문 - 대표적인 반복문
+
     ```java
     // 일반적인 반복문
     for (초기값; 조건식; 증감식) {
         실행코드 블럭;
     }
 
-    // 배열이나 컬렉션을 처리하는 반복문
+    // 배열, 컬렉션을 처리하는 반복문
     for (변수 : 컬렉션데이터) {
         실행코드 블럭;
     }
     ```
+
     - [Java문법실습](./day01/spring03/src/main/java/com/hugo83/spring03/Spring03Application.java)
 
-- while문 : 조건식이 참인동안 계속 반복
-```java
-while (조건식) {
-    실행코드 블럭;
-}
-```
+    - while문 - 조건식이 참인동안 계속 반복
 
-- do-while문 : 우선 실행코드를 한번 수행 후 조건을 검사 후 반복
-```java
-do {
-    실행코드 블럭;
-} while(조건식);
-```
+    ```java    
+    while (조건식) {
+        실행코드 블럭;
+    }
+    ```
+
+    - do-while문 - 우선 실행코드를 한번 수행 후 조건을 검사후 반복
+
+    ```java    
+    do {
+        실행코드 블럭;
+    } while(조건식);
+
+    ```
+
     - [Java문법실습](./day02/spring01/src/main/java/com/hugo83/spring01/Spring01Application.java)
 
 - 반복제어 키워드 : break, continue
     - for문, while문 내에서 사용
-    - break : 조건에 맞아 반복문을 탈출할 때
-    - continue : 특수 조건만 비켜서 반복문을 계속할 때
+    - break - 조건에 맞아 반복문을 탈출할 때
+    - continue - 특수 조건만 비켜서 반복문을 계속할 때
 
 #### 배열
 - 여러 데이터가 필요할 경우 하나의 변수로 처리 가능
@@ -532,49 +542,53 @@ public static void main(String[] args) {
 
 - [Java문법실습](./day04/spring04/src/main/java/com/hugo83/spring04/Spring04Application.java)
 
+
 #### StringBuilder
 - String 객체는 불변의 성질. 한번 생성되면 변경불가
-- 연산자로 수정을 하면 기존 메모리는 두고, 다시 String 객체를 생성
+- 연산자로 수정을 하면 기존 메모리는 두고, 다시 String객체를 생성
 - 이를 해결하고자 하기 위해 만든 것 - StringBuilder
-- 리스트와 유사. 문자열 처리 때문에 메모리 문제, 성능문제가 발생하며 StringBilder, StringBuffer 사용고려
-
+- 리스트와 유사. 문자열 처리때문에 메모리 문제, 성능문제가 발생하면 StringBuilder, StringBuffer 사용 고려
 
     ```java
-    StringBuilder sb = new StringBuider();
+    StringBuilder sb = new StringBuilder();
     sb.append("Hello");
     sb.append("Java!");
     // insert(), delete()
     ```
 
-- [Java문법실습](./day05/spring01/src/main/java/com/sm02/spring01/Spring01Application.java)
+- [JAVA문법실습](./day05/spring01/src/main/java/com/hugo83/spring01/Spring01Application.java)
 
 #### GC(Garbage Collection)
-- C언어 등 절차적 언어에서는 객체를 생성해서 메모리를 사용하면, 개발자가 직접 해제해줘야 함
+- C등 절차적 언어에서는 객체를 생성해서 메모릴 사용하면, 개발자가 직접 해제해줘야 함
 - 메모리 누수가 발생
 - 객체지향 언어에서는 GC 만들어서 메모리를 언어가 직접 핸들링 처리
 
-#### File IO 파일 입출력
+#### 파일입출력
 - 파일을 읽고 쓰는 작업
-- `FileInputStream`, `FileOutputStrea,`, `FileWriter`, `PrintWriter` 등의 클래스 사용
-- 입출력 예외가 발생할 수 있기 때문에 클래스나 메서드에 `throws IOException`을 추가해야 함 (필수)
+- 파일쓰기에 `FileOutputStream`, `FileWriter`, `PrintWriter` 등의 클래스 사용
+- 입출력 예외가 발생할 수 있기때문에 클래스나 메서드에 `throws IOException`을 추가해야 함
 - 파일읽기에 `FileInputStream`, `BufferedReader` 클래스 사용
 
-- [Java문법실습](./day05/spring02/src/main/java/com/sm02/spring02/Spring02Application.java)
+- [JAVA문법실습](./day05/spring02/src/main/java/com/hugo83/spring02/Spring02Application.java)
+
 
 #### 어노테이션
-- 한글로 주석이지만, # // /**/ 소스에 영향을 미치지 않는 주석과 다름
+- 한글로 주석이지만, #, //,  /**/ 소스에 영향을 미치지 않는 주석과 다름
 - 자바 소스에 추가해서 여러가지 기능을 수행하는 메타데이터 일종
 - @로 시작, JDK 1.5 이상부터 사용가능
-- 클래스파일에 같이 포함되어 JVM 작동 시 실행됨
+- 클래스 파일에 같이 포함되어 JVM 작동시 실행됨
 - 클래스, 메서드 바로 위에 작성. 코드와 설정을 관리할 수 있게 도와주는 역할
 
 ##### 1. @Override
 - 오버라이드를 올바르게 했는지 컴파일러 체크
-- 상속, 인터페이스 구현 시 사용
+- 상속, 인터페이스 구현시 사용
 
 ##### 2. @Deprecated
-- 앞으로 다음버전에서 삭제될 수 있음. 사용하지 말것을 권유하는 체크 
-<img src="./image/sb0011.png" width="600">
+- 앞으로 다음버전에서 삭제될 수 있음. 사용하지 말것을 권유하는 체크
+
+<img src="./image/sb0011.png" width="700">
+
+- 되도록이면 이 함수는 사용할지 말것
 
 ##### 3. @FunctionalInterface
 - 함수형 인터페이스에 붙여서, 컴파일러가 올바르게 작성되었는지 체크

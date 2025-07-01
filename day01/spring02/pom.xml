@@ -8,7 +8,7 @@
 		<version>3.3.10</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.sm02</groupId>
+	<groupId>com.hugo83</groupId>
 	<artifactId>spring02</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring02</name>
